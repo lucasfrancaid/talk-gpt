@@ -60,7 +60,7 @@ async def chat_message_history() -> list[Message]:
 
 if __name__ == "__main__":
     uvicorn.run(
-        "server:app",
+        "speak_gpt.server:app",
         port=3333,
         host="0.0.0.0",
         log_level="debug",
