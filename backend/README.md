@@ -29,15 +29,26 @@ To run the ASGI server:
 python -m speak_gpt.server
 ```
 
+To run by specifying your environment variables file:
+```bash
+python -m speak_gpt.server --env-file <ENV_FILE>
+```
+
+
 Access: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## CLI:
 To start a chat via CLI:
 ```bash
-python -m speak_gpt.cli
+speak_gpt --cmd <cli|api|audio|voice>
 ```
 
-If you want to custom, read about more advanced configuration:
+To start with your keys without any configuration:
 ```bash
-python -m speak_gpt.cli --help
+speak_gpt --openai-key <YOUR_KEY> --openai-org <YOUR_ORG>
+```
+
+For more custom settings:
+```bash
+speak_gpt --help
 ```
