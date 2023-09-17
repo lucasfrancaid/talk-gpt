@@ -5,7 +5,6 @@ A back-end and front-end implementation to speak with ChatGPT via mobile app, br
 Some improvements are necessary to have a better and fluid experience.
 
 ### [Back-end](./backend/)
-* Improve CLI using [Click](https://click.palletsprojects.com/en/8.1.x/)
 * Add a NoSQL Database as Repository
 * Create Dockerfile and Docker Compose to automate the infrastructure
 * Add authentication to isolate conversations by authenticated user, creating a historic

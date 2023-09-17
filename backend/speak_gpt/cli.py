@@ -1,31 +1,29 @@
-import argparse
+import click
 
-from speak_gpt.gpt.cli import SpeakGPTCLI
 from speak_gpt.gpt.enums import SpeakGPTCommandOptions
-from speak_gpt.store.factory import RepositoryFactory
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Speak GPT - CLI to interact with ChatGPT"
-    )
-    parser.add_argument(
-        "-c",
-        "--cmd",
-        default="cli",
-        choices=("cli", "audio", "voice"),
-        help=(
-            "This flag is to choose the command talk mode. \n"
-            "The different options provide different experiences: \n"
-            "- cli: It is a chat conversation, you will read and write your conversation with AI. \n"
-            "- audio: It is a hybrid conversation, you will write your message but you will read and listen from AI. \n"
-            "- voice: It is a speak conversation, you will record voice messages and will listen from AI. \n"
-        ),
-    )
-    args = parser.parse_args()
-    cli = SpeakGPTCLI(
-        cmd=SpeakGPTCommandOptions(args.cmd), repository=RepositoryFactory.factory()
-    )
+@click.command(help="Speak GPT - CLI to talk with ChatGPT")
+@click.option(
+    '-c', '--cmd', default="cli", help="Choose the conversation mode",
+    type=click.Choice(tuple(option.value for option in SpeakGPTCommandOptions))
+)
+@click.option('-e', '--env-file', default=".env", help="Environment variables configuration file", type=str)
+@click.option('-k', '--openai-key', help="OpenAI API key", type=str)
+@click.option('-o', '--openai-org', help="OpenAI Organization", type=str)
+def main(cmd: str, env_file: str | None, openai_key: str | None, openai_org: str | None) -> None:
+    import speak_gpt.config.settings as settings_file
+    settings_file.settings = settings_file.Settings(env_file=env_file)
+
+    if openai_key:
+        settings_file.settings.OPENAI_KEY = openai_key
+    if openai_org:
+        settings_file.settings.OPENAI_ORG = openai_org
+
+    from speak_gpt.gpt.cli import SpeakGPTCLI
+    from speak_gpt.store.factory import RepositoryFactory
+
+    cli = SpeakGPTCLI(cmd=SpeakGPTCommandOptions(cmd), repository=RepositoryFactory.factory())
     cli.process()
 
 

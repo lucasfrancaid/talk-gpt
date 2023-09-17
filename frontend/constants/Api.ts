@@ -1,5 +1,5 @@
 export default {
-  url: process.env.API_URL || 'http://localhost:3333',
+  url: process.env.API_URL || 'http://localhost:8000',
   baseHeaders: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

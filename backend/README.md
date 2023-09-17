@@ -29,7 +29,7 @@ To run the ASGI server:
 python -m speak_gpt.server
 ```
 
-Access: [http://localhost:3333/docs](http://localhost:3333/docs)
+Access: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## CLI:
 To start a chat via CLI:

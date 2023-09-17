@@ -58,7 +58,7 @@
             formData.append("file", blob);
 
             try {
-                const response = await fetch('http://localhost:3333/upload', {
+                const response = await fetch('http://localhost:8000/upload', {
                     mode: "cors",
                     credentials: "include",
                     method: 'POST',

@@ -6,6 +6,9 @@ authors = ["Lucas França <https://github.com/lucasfrancaid>"]
 readme = "README.md"
 packages = [{include = "speak_gpt"}]
 
+[tool.poetry.scripts]
+speak_gpt = "speak_gpt.cli:main"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 openai = "^0.27.8"
@@ -18,7 +21,7 @@ uvicorn = "^0.22.0"
 python-multipart = "^0.0.6"
 ipython = "^8.14.0"
 pydantic = {version = "<2.0.0", extras = ["dotenv"]}
-
+click = "^8.1.7"
 
 [build-system]
 requires = ["poetry-core"]

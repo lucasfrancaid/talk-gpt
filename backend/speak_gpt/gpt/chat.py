@@ -6,8 +6,8 @@ from speak_gpt.gpt.enums import SpeakGPTCommandOptions
 from speak_gpt.gpt.models import Message
 from speak_gpt.store.repository import Repository
 
-openai.api_key = settings.OPENAI_KEY
-openai.organization = settings.OPENAI_ORG
+openai.api_key = settings.OPENAI_API_KEY
+openai.organization = settings.OPENAI_ORGANIZATION
 
 
 class SpeakGPT:
