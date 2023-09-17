@@ -37,10 +37,10 @@ python -m speak_gpt.server --env-file <ENV_FILE>
 
 Access: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-## CLI:
+## CLI
 To start a chat via CLI:
 ```bash
-speak_gpt --cmd <cli|api|audio|voice>
+speak_gpt --cmd cli
 ```
 
 To start with your keys without any configuration:
