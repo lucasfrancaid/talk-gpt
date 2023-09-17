@@ -10,10 +10,10 @@ Some improvements are necessary to have a better and fluid experience.
 * Add authentication to isolate conversations by authenticated user, creating a historic
 * Create websocket for the chat? Instead of HTTP requests
 * Improve Text to Speech with voice options
-* Improve Speech to Text with auto correction, adding semi collons, etc
+* Improve Speech to Text with auto correction, add comma, full stop, etc
 
 ### [Front-end](./frontend/)
-* Add streaming by response from AI, not download all the audio and then play it, but downloading and playing audio in the same time
+* Add streaming by response from AI, not downloading all the audio then playing it, but downloading and playing audio as chunks
 * Improve User Experience and User Interface
 * Add SignUp and SignIn screens
 * Add dotenv configuration
