@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "speak-gpt"
+name = "talk-gpt"
 version = "0.1.0"
 description = ""
 authors = ["Lucas França <https://github.com/lucasfrancaid>"]
 readme = "README.md"
-packages = [{include = "speak_gpt"}]
+packages = [{include = "talk_gpt"}]
 
 [tool.poetry.scripts]
-speak_gpt = "speak_gpt.cli:main"
+talk_gpt = "talk_gpt.cli:main"
 
 [tool.poetry.dependencies]
 python = "^3.11"

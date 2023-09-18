@@ -1,10 +1,11 @@
-# SpeakGPT
-A back-end and front-end implementation to speak with ChatGPT via mobile app, browser, CLI or API.
+# TalkGPT
+A back-end and front-end implementation to talk with ChatGPT via mobile app, browser, CLI or API.
 
 ## To Do
 Some improvements are necessary to have a better and fluid experience.
 
 ### [Back-end](./backend/)
+* Add historic to CLI mode
 * Add a NoSQL Database as Repository
 * Create Dockerfile and Docker Compose to automate the infrastructure
 * Add authentication to isolate conversations by authenticated user, creating a historic

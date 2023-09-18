@@ -165,7 +165,7 @@ function printLastMessage(playAudio = false) {
 }
 
 async function main(voiceMode = false) {
-  console.log('--> Welcome to SpeakGPT, focused to improve your English. \n');
+  console.log('--> Welcome to TalkGPT, focused to improve your English. \n');
   console.log('Present yourself to AI English Teacher. \n');
 
   const firstContent = inputContent({ voiceMode });

@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/lucasfrancaid/speak-gpt/internal/pkg/openai"
-	"github.com/lucasfrancaid/speak-gpt/pkg/client"
+	"github.com/lucasfrancaid/talk-gpt/internal/pkg/openai"
+	"github.com/lucasfrancaid/talk-gpt/pkg/client"
 )
 
 func main() {

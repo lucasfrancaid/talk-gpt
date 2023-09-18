@@ -8,7 +8,7 @@ from gtts import gTTS
 from pydub import AudioSegment
 from pydub.playback import play
 
-from speak_gpt.config.settings import ROOT_DIR
+from talk_gpt.config.settings import ROOT_DIR
 
 MEDIA_DIR = f"{ROOT_DIR}/etc/_media"
 AUDIO_FILE = f"{MEDIA_DIR}/audio.mp3"

@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     def __init__(self, env_file: str | None = None) -> None:
         super().__init__(_env_file=env_file)
 
-    APP_NAME: str = "Speak GPT"
+    APP_NAME: str = "Talk GPT"
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
     DEBUG: bool = True

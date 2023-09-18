@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/lucasfrancaid/speak-gpt/internal/pkg/openai"
+	"github.com/lucasfrancaid/talk-gpt/internal/pkg/openai"
 )
 
 type Client struct {

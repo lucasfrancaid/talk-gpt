@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from speak_gpt.gpt.chat import Message
+from talk_gpt.gpt.chat import Message
 
 
 class Repository(Protocol):

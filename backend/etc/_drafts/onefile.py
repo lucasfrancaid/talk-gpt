@@ -89,7 +89,7 @@ def print_last_message(play_audio: bool = False):
 
 
 def main(voice_mode: bool = False):
-    print("--> Welcome to SpeakGPT, focused to improve your english. \n")
+    print("--> Welcome to TalkGPT, focused to improve your english. \n")
     print("Present yourself to AI English Teacher. \n")
 
     first_content = input_content(voice_mode=voice_mode)
@@ -131,7 +131,7 @@ def main(voice_mode: bool = False):
             print("\n--> Retrying by myself...")
 
 
-parser = argparse.ArgumentParser(description="Speak GPT - CLI to interact with ChatGPT")
+parser = argparse.ArgumentParser(description="Talk GPT - CLI to interact with ChatGPT")
 parser.add_argument("-c", "--cmd", default="cli", choices=("cli", "voice"), help="Command talk mode")
 args = parser.parse_args()
 is_voice_mode = args.cmd == "voice"

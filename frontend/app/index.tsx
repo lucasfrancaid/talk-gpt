@@ -188,7 +188,7 @@ export default function Chat() {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>SpeakGPT - AI English Teacher</Text> */}
+      {/* <Text style={styles.title}>TalkGPT - AI English Teacher</Text> */}
       <Header />
       <GiftedChat
         messages={messages}

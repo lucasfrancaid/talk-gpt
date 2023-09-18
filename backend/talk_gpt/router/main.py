@@ -3,15 +3,15 @@ from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from speak_gpt.audio.speech import VOICE_FROM_FILE, speech_to_text, text_to_speech
-from speak_gpt.gpt.chat import SpeakGPT
-from speak_gpt.gpt.enums import SpeakGPTCommandOptions
-from speak_gpt.gpt.models import Message
-from speak_gpt.store.factory import RepositoryFactory
+from talk_gpt.audio.speech import VOICE_FROM_FILE, speech_to_text, text_to_speech
+from talk_gpt.gpt.chat import TalkGPT
+from talk_gpt.gpt.enums import TalkGPTCommandOptions
+from talk_gpt.gpt.models import Message
+from talk_gpt.store.factory import RepositoryFactory
 
 app = FastAPI()
-speak_gpt = SpeakGPT(
-    cmd=SpeakGPTCommandOptions.API, repository=RepositoryFactory.factory()
+talk_gpt = TalkGPT(
+    cmd=TalkGPTCommandOptions.API, repository=RepositoryFactory.factory()
 )
 
 app.add_middleware(
@@ -47,10 +47,10 @@ async def chat_speech_to_text(file: UploadFile) -> Message:
 
 @app.post("/chat/message")
 async def chat_message(message: Message) -> Message:
-    speak_gpt.send_message(message=message)
-    return speak_gpt.present_ai_response()
+    talk_gpt.send_message(message=message)
+    return talk_gpt.present_ai_response()
 
 
 @app.get("/chat/message/history")
 async def chat_message_history() -> list[Message]:
-    return speak_gpt._messages
+    return talk_gpt._messages

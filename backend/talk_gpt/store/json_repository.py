@@ -3,9 +3,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Final
 
-from speak_gpt.config.settings import ROOT_DIR
-from speak_gpt.gpt.chat import Message
-from speak_gpt.store.repository import Repository
+from talk_gpt.config.settings import ROOT_DIR
+from talk_gpt.gpt.chat import Message
+from talk_gpt.store.repository import Repository
 
 
 class JsonRepository(Repository):

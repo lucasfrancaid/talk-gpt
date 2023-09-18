@@ -26,12 +26,12 @@ Inside the `.env` change the variables with your keys.
 ## Server
 To run the ASGI server:
 ```bash
-python -m speak_gpt.server
+python -m talk_gpt.server
 ```
 
 To run by specifying your environment variables file:
 ```bash
-python -m speak_gpt.server --env-file <ENV_FILE>
+python -m talk_gpt.server --env-file <ENV_FILE>
 ```
 
 
@@ -40,15 +40,15 @@ Access: [http://localhost:8000/docs](http://localhost:8000/docs)
 ## CLI
 To start a chat via CLI:
 ```bash
-speak_gpt --cmd cli
+talk_gpt --cmd cli
 ```
 
 To start with your keys without any configuration:
 ```bash
-speak_gpt --openai-key <YOUR_KEY> --openai-org <YOUR_ORG>
+talk_gpt --openai-key <YOUR_KEY> --openai-org <YOUR_ORG>
 ```
 
 For more custom settings:
 ```bash
-speak_gpt --help
+talk_gpt --help
 ```

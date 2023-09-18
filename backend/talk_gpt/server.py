@@ -2,13 +2,13 @@ import click
 import uvicorn
 
 
-@click.command(help="Speak GPT - API")
+@click.command(help="Talk GPT - API")
 @click.option('-e', '--env-file', default=".env", help="Environment variables configuration file", type=str)
 def main(env_file: str | None):
-    import speak_gpt.config.settings as settings_file
+    import talk_gpt.config.settings as settings_file
     settings = settings_file.settings = settings_file.Settings(env_file=env_file)
 
-    from speak_gpt.router.main import app
+    from talk_gpt.router.main import app
 
     config = uvicorn.Config(
         app=app,

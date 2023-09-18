@@ -55,7 +55,7 @@ function RootLayoutNav() {
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack
           screenOptions={{
-            title: 'Speak GPT',
+            title: 'Talk GPT',
             headerShown: false,
             // headerTitle: () => <Header />
           }} />
