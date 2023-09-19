@@ -162,5 +162,5 @@ cython_debug/
 
 # etc dirs
 etc/certs/*.pem
-etc/_bkp/database_*.json
+etc/_bkp/db_*.json
 etc/_media/*.wav

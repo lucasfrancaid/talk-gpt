@@ -23,6 +23,40 @@ ipython = "^8.14.0"
 pydantic = {version = "<2.0.0", extras = ["dotenv"]}
 click = "^8.1.7"
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.290"
+
+[tool.ruff]
+src = ['talk_gpt']
+select = ['E', 'F', 'B', 'I', 'N', 'UP', 'PT', 'A', 'ARG']
+
+fixable = ["ALL"]
+unfixable = []
+
+exclude = [
+    'README.md',
+    'poetry.lock',
+    'pyproject.toml',
+    'venv',
+    '.git',
+    '.gitignore',
+    '.mypy_cache',
+    '.pre-commit-config.yaml',
+    '.ruff_cache',
+    '.venv',
+    '.env',
+]
+
+line-length = 120
+show-source = true
+
+[tool.ruff.flake8-quotes]
+inline-quotes = 'double'
+multiline-quotes = 'double'
+
+[tool.ruff.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends"]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

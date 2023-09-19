@@ -1,19 +1,14 @@
-from fastapi import FastAPI, UploadFile
-from fastapi.responses import StreamingResponse
+from fastapi import Depends, FastAPI, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from fastapi.responses import StreamingResponse
 
 from talk_gpt.audio.speech import VOICE_FROM_FILE, speech_to_text, text_to_speech
 from talk_gpt.gpt.chat import TalkGPT
-from talk_gpt.gpt.enums import TalkGPTCommandOptions
+from talk_gpt.gpt.enums import CommandOption, PromptOption
 from talk_gpt.gpt.models import Message
-from talk_gpt.store.factory import RepositoryFactory
+from talk_gpt.store.factory import ChatRepositoryFactory
 
 app = FastAPI()
-talk_gpt = TalkGPT(
-    cmd=TalkGPTCommandOptions.API, repository=RepositoryFactory.factory()
-)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -23,18 +18,32 @@ app.add_middleware(
 )
 
 
-class TextToSpeech(BaseModel):
-    content: str
+def get_talk_gpt() -> TalkGPT:
+    return TalkGPT(
+        cmd=CommandOption.API,
+        prompt=PromptOption.ENGLISH_TEACHER,
+        repository=ChatRepositoryFactory.factory(),
+    )
 
 
-@app.post("/upload", status_code=204)
-async def upload(file: UploadFile) -> None:
-    with open(VOICE_FROM_FILE, "wb") as f:
-        f.write(file.file.read())
+@app.post("/chat/message")
+async def chat_message(message: Message, talk_gpt: TalkGPT = Depends(get_talk_gpt)) -> Message:
+    talk_gpt.send_message(message=message)
+    return talk_gpt.present_ai_response()
+
+
+@app.get("/chat/message/history")
+async def chat_message_history(talk_gpt: TalkGPT = Depends(get_talk_gpt)) -> list[Message]:
+    talk_gpt = TalkGPT(
+        cmd=CommandOption.API,
+        prompt=PromptOption.ENGLISH_TEACHER,
+        repository=ChatRepositoryFactory.factory(),
+    )
+    return talk_gpt.present_messages()
 
 
 @app.post("/chat/text-to-speech")
-async def chat_text_to_speech(tts: TextToSpeech) -> StreamingResponse:
+async def chat_text_to_speech(tts: Message) -> StreamingResponse:
     fp = text_to_speech(text=tts.content)
     return StreamingResponse(fp, media_type="audio/mp3")
 
@@ -45,12 +54,7 @@ async def chat_speech_to_text(file: UploadFile) -> Message:
     return Message(role="user", content=content)
 
 
-@app.post("/chat/message")
-async def chat_message(message: Message) -> Message:
-    talk_gpt.send_message(message=message)
-    return talk_gpt.present_ai_response()
-
-
-@app.get("/chat/message/history")
-async def chat_message_history() -> list[Message]:
-    return talk_gpt._messages
+@app.post("/upload", status_code=204)
+async def upload(file: UploadFile) -> None:
+    with open(VOICE_FROM_FILE, "wb") as f:
+        f.write(file.file.read())

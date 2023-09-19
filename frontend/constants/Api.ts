@@ -6,12 +6,12 @@ export default {
   },
   rootUser: {
     _id: 1,
-    name: 'Lucas',
-    avatar: 'https://avatars.githubusercontent.com/u/54768967?v=4',
+    name: 'User',
+    avatar: '../assets/images/talk_gpt_white.png',
   },
   systemUser: {
     _id: 2,
-    name: 'Kara',
-    avatar: 'https://avatars.githubusercontent.com/u/82469147?v=4',
+    name: 'AI',
+    avatar: '../assets/images/talk_gpt_orange.png',
   }
 };

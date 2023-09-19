@@ -1,8 +1,8 @@
-from talk_gpt.store.json_repository import JsonRepository
-from talk_gpt.store.repository import Repository
+from talk_gpt.store.chat.json import ChatRepositoryJSON
+from talk_gpt.store.chat.repository import ChatRepository
 
 
-class RepositoryFactory:
+class ChatRepositoryFactory:
     @staticmethod
-    def factory() -> Repository:
-        return JsonRepository()
+    def factory() -> ChatRepository:
+        return ChatRepositoryJSON()

@@ -6,6 +6,7 @@ Some improvements are necessary to have a better and fluid experience.
 
 ### [Back-end](./backend/)
 * Add historic to CLI mode
+* Add sent_at in messages
 * Add a NoSQL Database as Repository
 * Create Dockerfile and Docker Compose to automate the infrastructure
 * Add authentication to isolate conversations by authenticated user, creating a historic

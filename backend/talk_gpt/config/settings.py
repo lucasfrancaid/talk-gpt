@@ -19,17 +19,19 @@ class Settings(BaseSettings):
     GPT_MODEL: str = "gpt-3.5-turbo"
     OPENAI_API_KEY: str = ""
     OPENAI_ORGANIZATION: str = ""
+    USER_NAME: str = "You"
+    AI_ASSISTANT_NAME: str = "AI"
 
     class Config:
         case_sensitive = True
 
     @validator('OPENAI_API_KEY')
-    def openai_api_key(cls, key: str, values: dict[str, Any]) -> str:
+    def openai_api_key(cls, key: str, values: dict[str, Any]) -> str:  # noqa
         openai.api_key = key
         return key
 
     @validator('OPENAI_ORGANIZATION')
-    def openai_organization(cls, org: str, values: dict[str, Any]) -> str:
+    def openai_organization(cls, org: str, values: dict[str, Any]) -> str:  # noqa
         openai.organization = org
         return org
 

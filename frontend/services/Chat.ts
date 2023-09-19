@@ -9,8 +9,6 @@ import { IChatMessage } from '../app';
 
 export async function ConvertTextToSpeech(message: string): Promise<any> {
   const result = await fetch(`${Api.url}/chat/text-to-speech`, {
-    // const response = await fetch(`${Api.url}/chat/text-to-speech?message=${message}`, {
-    // method: 'GET',
     method: 'POST',
     headers: Api.baseHeaders,
     body: JSON.stringify({ content: message })
@@ -18,7 +16,7 @@ export async function ConvertTextToSpeech(message: string): Promise<any> {
     .then((response) => response.blob())
     .then((body) => {
       if (!body) {
-        return new Error("Deu ruim!")
+        return new Error("Error texting to speech!")
       }
       if (Platform.OS !== 'web') {
         const fr = new FileReader()
@@ -66,12 +64,6 @@ export async function ConvertSpeechToText(uri: string): Promise<any> {
     body: formData,
   })
     .then((response) => response.json())
-    // .then((response) => {
-    // if (!response.ok) {
-    //   throw new Error(`Unexpected error calling API: [${response.status}] ${response.body?.getReader()}`)
-    // }
-    //   return response.json()
-    // })
     .then((json) => {
       if (json.detail) {
         throw new Error(`Unexpected error calling API: ${JSON.stringify(json)}`)
@@ -93,7 +85,7 @@ export async function GetChatHistory(): Promise<IMessage[]> {
   })
     .then((response) => response.json())
     .then((json) => {
-      let msgs = json.slice(1).map((item: IChatMessage) => {
+      let msgs = json.map((item: IChatMessage) => {
         return {
           _id: String(uuid.v4()),
           text: item.content,

@@ -72,32 +72,8 @@ def get_content() -> str:
             return content
 
         except FileNotFoundError:
-            if exception_retries == 108:
+            if exception_retries == 36:  # (36 * 5 = 180) / 60 = 3 minutes
                 exit()
             print("\n--> Record an audio in the client to send a message")
             time.sleep(5)
             exception_retries += 1
-
-
-# def record_and_get_content() -> str:
-#     r = sr.Recognizer()
-#     # Need to install pyaudio
-#     with sr.Microphone() as source:
-#         r.adjust_for_ambient_noise(source)
-#         print("Talk something")
-#         audio_text = r.listen(source)
-#         print("Finished")
-#         content = r.recognize_google(audio_text)
-#         return content
-
-
-# def _list_mic():
-#     import speech_recognition as sr
-#     # Need to install pyaudio
-#     for index, name in enumerate(sr.Microphone.list_microphone_names()):
-#         print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
-
-
-if __name__ == "__main__":
-    content = get_content()
-    print(content)

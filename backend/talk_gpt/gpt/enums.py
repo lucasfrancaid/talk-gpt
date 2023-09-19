@@ -1,8 +1,13 @@
 from enum import Enum
 
 
-class TalkGPTCommandOptions(str, Enum):
+class CommandOption(str, Enum):
     API = "api"
     CLI = "cli"
-    AUDIO = "audio"
-    VOICE = "voice"
+    AUDIO = "cli.audio"
+    VOICE = "cli.voice"
+
+
+class PromptOption(str, Enum):
+    GPT = "gpt"
+    ENGLISH_TEACHER = "english_teacher"
