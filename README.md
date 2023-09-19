@@ -1,6 +1,12 @@
 # TalkGPT
 A back-end and front-end implementation to talk to ChatGPT via mobile app, browser, CLI or API.
 
+## Short story
+I created this project to improve my English using ChatGPT. 
+I had the idea to create a mobile application that would allow me talk with ChatGPT using `audio` and `voice`, and I did it (_in few hours_). 
+I used it for a while and was able to improve my English, at least a little. 
+Now, I've just opened up this project for contributions and added some features, such as using th CLI with specific prompts that direct ChatGPT's behavior to the desired topic (_e.g. ChatGPT acting as an English Teacher_) or even without specific prompts, allowing you to ask anything.
+
 ## To Do
 Some improvements are necessary to have a better and fluid experience.
 
@@ -18,6 +24,10 @@ Some improvements are necessary to have a better and fluid experience.
 * Improve User Experience and User Interface
 * Add SignUp and SignIn screens
 * Add dotenv configuration
+
+## Contributing
+I would really appreciate it if you could contribute to this project. Either on the back-end or front-end, you can contribute with something in our [To do list](#to-do).  
+If you have nice skills of UI/UX don't hesitate to contribute as well, I'm not good at all.
 
 ## Author
 Created by **Lucas França**:
