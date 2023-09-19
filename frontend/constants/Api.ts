@@ -7,11 +7,11 @@ export default {
   rootUser: {
     _id: 1,
     name: 'User',
-    avatar: '../assets/images/talk_gpt_white.png',
+    avatar: 'https://raw.githubusercontent.com/lucasfrancaid/talk-gpt/main/frontend/assets/images/talk_gpt_white.png',
   },
   systemUser: {
     _id: 2,
     name: 'AI',
-    avatar: '../assets/images/talk_gpt_orange.png',
+    avatar: 'https://raw.githubusercontent.com/lucasfrancaid/talk-gpt/main/frontend/assets/images/talk_gpt_orange.png',
   }
 };

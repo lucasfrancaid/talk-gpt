@@ -24,4 +24,4 @@ Then, change the IP on [package.json](./package.json) adding the output from `ip
 npm run start:bridge
 ```
 
-Note that is necessary to export the variable `API_URL` with the IP for access from your mobile phone, e.g. `API_URL=http://192.168.X.XX:8000`, it will ensure that you can call the API.
+Note that is necessary to export the variable `API_URL` or [change directly in line 2](./constants/Api.ts) with the IPV4 for access from your mobile phone, e.g. `API_URL=http://192.168.X.XX:8000`, it will ensure that you can call the API.

@@ -7,6 +7,8 @@ I had the idea to create a mobile application that would allow me talk with Chat
 I used it for a while and was able to improve my English, at least a little. 
 Now, I've just opened up this project for contributions and added some features, such as using th CLI with specific prompts that direct ChatGPT's behavior to the desired topic (_e.g. ChatGPT acting as an English Teacher_) or even without specific prompts, allowing you to ask anything.
 
+**NOTE**: I decided to build the `text-to-speech` and `speech-to-text` functions on the back-end because it's easier to handle in Python due to the `Open Source` libraries. Furthermore, it's difficult to deal with this in `React Native` because of the Expo (_I can be wrong_).
+
 ## To Do
 Some improvements are necessary to have a better and fluid experience.
 
